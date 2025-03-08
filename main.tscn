@@ -29,7 +29,7 @@ script = ExtResource("1_0xm2m")
 mob_scene = ExtResource("2_h2yge")
 
 [node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 collision_layer = 4
 collision_mask = 0
 
@@ -73,10 +73,11 @@ mesh = SubResource("CylinderMesh_ig7tw")
 curve = SubResource("Curve3D_ig7tw")
 
 [node name="SpawnLocation" type="PathFollow3D" parent="SpawnPath"]
-transform = Transform3D(0.00463384, 0.000359308, -0.999989, -1.45519e-11, 1, 0.000359312, 0.999989, -1.66498e-06, 0.00463384, -20.8314, 0.0112934, -16.536)
+transform = Transform3D(0.0046348, 0.000359307, -0.999989, -2.91038e-11, 1, 0.00035931, 0.999989, -1.6653e-06, 0.0046348, -20.8314, 0.0112934, -16.536)
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
+[connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

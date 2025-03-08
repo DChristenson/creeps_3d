@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal hit
+
 @export var speed = 14
 @export var jump_impulse = 20
 @export var bounce_impulse = 16
@@ -48,3 +50,11 @@ func _physics_process(delta):
 				mob.squash()
 				target_velocity.y = bounce_impulse
 				break
+
+
+func die():
+	hit.emit()
+	queue_free()
+
+func _on_mob_detector_body_entered(body: Node3D) -> void:
+	die()
