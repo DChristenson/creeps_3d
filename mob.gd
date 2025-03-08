@@ -20,4 +20,3 @@ func _on_visibility_notifier_screen_exited() -> void:
 func squash():
 		squashed.emit()
 		queue_free()
-		
